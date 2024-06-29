@@ -1,0 +1,117 @@
+scoreboard objectives add xp_level dummy
+scoreboard objectives add xp_temp dummy
+scoreboard objectives add xp_respawn dummy
+scoreboard objectives add respawn dummy
+scoreboard objectives add respawnTimer dummy
+scoreboard players add @a respawnTimer 0
+execute as @a run stopsound @s random.levelup
+execute as @a unless entity @e[scores={respawn=1}] run scoreboard players set @s xp_level 0
+execute as @a run scoreboard players set @s xp_temp 0
+execute as @a[lm=32768] run scoreboard players add @s xp_level 32768
+execute as @a[lm=32768] run xp -32768L @s
+execute as @a[lm=16384] run scoreboard players add @s xp_level 16384
+execute as @a[lm=16384] run xp -16384L @s
+execute as @a[lm=8192] run scoreboard players add @s xp_level 8192
+execute as @a[lm=8192] run xp -8192L @s
+execute as @a[lm=4096] run scoreboard players add @s xp_level 4096
+execute as @a[lm=4096] run xp -4096L @s
+execute as @a[lm=2048] run scoreboard players add @s xp_level 2048
+execute as @a[lm=2048] run xp -2048L @s
+execute as @a[lm=1024] run scoreboard players add @s xp_level 1024
+execute as @a[lm=1024] run xp -1024L @s
+execute as @a[lm=512] run scoreboard players add @s xp_level 512
+execute as @a[lm=512] run xp -512L @s
+execute as @a[lm=256] run scoreboard players add @s xp_level 256
+execute as @a[lm=256] run xp -256L @s
+execute as @a[lm=128] run scoreboard players add @s xp_level 128
+execute as @a[lm=128] run xp -128L @s
+execute as @a[lm=64] run scoreboard players add @s xp_level 64
+execute as @a[lm=64] run xp -64L @s
+execute as @a[lm=32] run scoreboard players add @s xp_level 32
+execute as @a[lm=32] run xp -32L @s
+execute as @a[lm=16] run scoreboard players add @s xp_level 16
+execute as @a[lm=16] run xp -16L @s
+execute as @a[lm=8] run scoreboard players add @s xp_level 8
+execute as @a[lm=8] run xp -8L @s
+execute as @a[lm=4] run scoreboard players add @s xp_level 4
+execute as @a[lm=4] run xp -4L @s
+execute as @a[lm=2] run scoreboard players add @s xp_level 2
+execute as @a[lm=2] run xp -2L @s
+execute as @a[lm=1] run scoreboard players add @s xp_level 1
+execute as @a[lm=1] run xp -1L @s
+execute as @a run scoreboard players operation @s xp_temp = @s xp_level
+execute as @a[scores={xp_temp=32768..}] run xp 32768L @s
+execute as @a[scores={xp_temp=32768..}] run scoreboard players add @s xp_temp -32768
+execute as @a[scores={xp_temp=16384..}] run xp 16384L @s
+execute as @a[scores={xp_temp=16384..}] run scoreboard players add @s xp_temp -16384
+execute as @a[scores={xp_temp=8192..}] run xp 8192L @s
+execute as @a[scores={xp_temp=8192..}] run scoreboard players add @s xp_temp -8192
+execute as @a[scores={xp_temp=4096..}] run xp 4096L @s
+execute as @a[scores={xp_temp=4096..}] run scoreboard players add @s xp_temp -4096
+execute as @a[scores={xp_temp=2048..}] run xp 2048L @s
+execute as @a[scores={xp_temp=2048..}] run scoreboard players add @s xp_temp -2048
+execute as @a[scores={xp_temp=1024..}] run xp 1024L @s
+execute as @a[scores={xp_temp=1024..}] run scoreboard players add @s xp_temp -1024
+execute as @a[scores={xp_temp=512..}] run xp 512L @s
+execute as @a[scores={xp_temp=512..}] run scoreboard players add @s xp_temp -512
+execute as @a[scores={xp_temp=256..}] run xp 256L @s
+execute as @a[scores={xp_temp=256..}] run scoreboard players add @s xp_temp -256
+execute as @a[scores={xp_temp=128..}] run xp 128L @s
+execute as @a[scores={xp_temp=128..}] run scoreboard players add @s xp_temp -128
+execute as @a[scores={xp_temp=64..}] run xp 64L @s
+execute as @a[scores={xp_temp=64..}] run scoreboard players add @s xp_temp -64
+execute as @a[scores={xp_temp=32..}] run xp 32L @s
+execute as @a[scores={xp_temp=32..}] run scoreboard players add @s xp_temp -32
+execute as @a[scores={xp_temp=16..}] run xp 16L @s
+execute as @a[scores={xp_temp=16..}] run scoreboard players add @s xp_temp -16
+execute as @a[scores={xp_temp=8..}] run xp 8L @s
+execute as @a[scores={xp_temp=8..}] run scoreboard players add @s xp_temp -8
+execute as @a[scores={xp_temp=4..}] run xp 4L @s
+execute as @a[scores={xp_temp=4..}] run scoreboard players add @s xp_temp -4
+execute as @a[scores={xp_temp=2..}] run xp 2L @s
+execute as @a[scores={xp_temp=2..}] run scoreboard players add @s xp_temp -2
+execute as @a[scores={xp_temp=1..}] run xp 1L @s
+execute as @a[scores={xp_temp=1..}] run scoreboard players add @s xp_temp -1
+execute as @a run stopsound @s random.levelup
+scoreboard objectives add respawn dummy
+scoreboard objectives add respawnTimer dummy
+scoreboard players add @a respawnTimer 0
+execute as @a run scoreboard players set @s xp_respawn 0
+execute as @e[scores={respawn=1, respawnTimer=0..1}] run scoreboard players add @s respawnTimer 1
+execute as @a[scores={respawnTimer=1}] run scoreboard players set @s respawnTimer 0
+scoreboard players set @a[scores={respawnTimer=2}] respawnTimer 0
+execute as @e[scores={respawn=1, respawnTimer=1}] run scoreboard players operation @s xp_respawn = @s xp_level
+execute as @a[scores={xp_respawn=32768..}] run xp 32768L @s
+execute as @a[scores={xp_respawn=32768..}] run scoreboard players add @s xp_respawn -32768
+execute as @a[scores={xp_respawn=16384..}] run xp 16384L @s
+execute as @a[scores={xp_respawn=16384..}] run scoreboard players add @s xp_respawn -16384
+execute as @a[scores={xp_respawn=8192..}] run xp 8192L @s
+execute as @a[scores={xp_respawn=8192..}] run scoreboard players add @s xp_respawn -8192
+execute as @a[scores={xp_respawn=4096..}] run xp 4096L @s
+execute as @a[scores={xp_respawn=4096..}] run scoreboard players add @s xp_respawn -4096
+execute as @a[scores={xp_respawn=2048..}] run xp 2048L @s
+execute as @a[scores={xp_respawn=2048..}] run scoreboard players add @s xp_respawn -2048
+execute as @a[scores={xp_respawn=1024..}] run xp 1024L @s
+execute as @a[scores={xp_respawn=1024..}] run scoreboard players add @s xp_respawn -1024
+execute as @a[scores={xp_respawn=512..}] run xp 512L @s
+execute as @a[scores={xp_respawn=512..}] run scoreboard players add @s xp_respawn -512
+execute as @a[scores={xp_respawn=256..}] run xp 256L @s
+execute as @a[scores={xp_respawn=256..}] run scoreboard players add @s xp_respawn -256
+execute as @a[scores={xp_respawn=128..}] run xp 128L @s
+execute as @a[scores={xp_respawn=128..}] run scoreboard players add @s xp_respawn -128
+execute as @a[scores={xp_respawn=64..}] run xp 64L @s
+execute as @a[scores={xp_respawn=64..}] run scoreboard players add @s xp_respawn -64
+execute as @a[scores={xp_respawn=32..}] run xp 32L @s
+execute as @a[scores={xp_respawn=32..}] run scoreboard players add @s xp_respawn -32
+execute as @a[scores={xp_respawn=16..}] run xp 16L @s
+execute as @a[scores={xp_respawn=16..}] run scoreboard players add @s xp_respawn -16
+execute as @a[scores={xp_respawn=8..}] run xp 8L @s
+execute as @a[scores={xp_respawn=8..}] run scoreboard players add @s xp_respawn -8
+execute as @a[scores={xp_respawn=4..}] run xp 4L @s
+execute as @a[scores={xp_respawn=4..}] run scoreboard players add @s xp_respawn -4
+execute as @a[scores={xp_respawn=2..}] run xp 2L @s
+execute as @a[scores={xp_respawn=2..}] run scoreboard players add @s xp_respawn -2
+execute as @a[scores={xp_respawn=1..}] run xp 1L @s
+execute as @a[scores={xp_respawn=1..}] run scoreboard players add @s xp_respawn -1
+scoreboard players set @a respawn 1
+scoreboard players set @e[type=player] respawn 0
