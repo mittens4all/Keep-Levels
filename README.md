@@ -39,9 +39,6 @@ It works functionally the same as the target selectors **`l`** and **`lm`**. The
 - [@mittens4all](https://www.github.com/mittens4all)
 - [Youtube](https://www.youtube.com/@mittens4all)
 
-## Support
-
-For support, Join the [Discord](https://discord.gg/fbB8QgjxuQ)
 ```js
        _                              _     _       _ _  
       (_)  _     _                   | |   (_)     | | | 
